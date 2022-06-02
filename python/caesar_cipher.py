@@ -8,6 +8,7 @@ def caesar_cipher(string, shift_amount):
     string_to_number = int(shift_amount)
     
     for x in range(0, len(string)):
+        print(string[x])
         if re.match("[^a-zA-Z]", string[x]):
             word_to_list.append(string[x])
             continue
@@ -17,7 +18,7 @@ def caesar_cipher(string, shift_amount):
         
         new_number_calculator = original_letter + string_to_number
         if new_number_calculator >= 26:
-            new_number_calculator -= 28
+            new_number_calculator -= 26
         if new_number_calculator < 0:
             new_number_calculator += 26
         
@@ -25,6 +26,6 @@ def caesar_cipher(string, shift_amount):
         if standard_alphabet.find(string[x]) == -1:
             shifted_letter = capital_alphabet[new_number_calculator]
         word_to_list.append(shifted_letter)
-        finalResult = "".join(word_to_list)
+    finalResult = "".join(word_to_list)
     print(finalResult)
     return finalResult
